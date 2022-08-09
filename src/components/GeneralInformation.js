@@ -4,7 +4,6 @@ import Field from "./Field";
 import { nanoid } from "nanoid";
 
 class GeneralInformation extends React.Component {
-
   render() {
     const defaultValues = {
       email: "gabrielruizvarela@gmail.com",
@@ -21,15 +20,17 @@ class GeneralInformation extends React.Component {
     return (
       <div className="GeneralInformation">
         {Object.keys(defaultValues).map((name) => {
-          return <Field
-            className={name}
-            name={name}
-            key={nanoid()}
-            defaultValues={defaultValues[name]}
-          />;
+          return (
+            <Field
+              className={name}
+              name={name}
+              key={nanoid()}
+              defaultValues={defaultValues[name]}
+            />
+          );
         })}
       </div>
-    )
+    );
   }
 }
 
