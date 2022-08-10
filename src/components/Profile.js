@@ -3,7 +3,6 @@ import React from "react";
 import Field from "./Field";
 import { nanoid } from "nanoid";
 
-// Profile contains the name and a description component.
 class Profile extends React.Component {
   render() {
     const profile = this.props.init;

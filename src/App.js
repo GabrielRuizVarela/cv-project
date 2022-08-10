@@ -14,11 +14,9 @@ import { nanoid } from 'nanoid';
 // Include a styles folder in your src directory for your CSS files. You’ll need to import these in the component files to use them.
 // Don’t forget to push your solution to GitHub. You should be proud of your work and show it off to the world!
 
-// import GeneralInformation from './components/GeneralInformation';
-// import Profile from './components/Profile';
-import Field from './components/Field';
 import GeneralInformation from './components/GeneralInformation';
 import Profile from './components/Profile';
+import EducationAndExperience from './components/EducationAndExperience';
 
 function App() {
   const generalInformation = {
@@ -44,6 +42,44 @@ function App() {
       - Adaptability\n
       - Teamwork`;
 
+  const education = [
+    {
+      place: "UNT",
+      from: "2009",
+      to: "20013",
+      title: "Ingeniero de Sistemas",
+      description: " Lorem short asdfasafsdf ",
+      id: nanoid(),
+    },
+    {
+      place: "TOP",
+      from: "2021",
+      to: "2022",
+      title: "Fullstack Developer",
+      description: " Lorem short asdfasafsdf ",
+      id: nanoid(),
+    }
+  ];
+
+  const experience = [
+    {
+      place: "Google",
+      from: "2019",
+      to: "2021",
+      title: "Fullstack Developer",
+      description: " Lorem short asdfasafsdf ",
+      id: nanoid(),
+    },
+    {
+      place: "Facebook",
+      from: "2018",
+      to: "2019",
+      title: "Fullstack Developer",
+      description: " Lorem short asdfasafsdf ",
+      id: nanoid(),
+    }
+  ];
+
   const profile = {
     name: "Gabriel Ruiz Varela",
     yourTitle: "Fullstack Developer",
@@ -54,6 +90,8 @@ function App() {
 
       <GeneralInformation init={{ generalInformation, skills }} />
       <Profile init={profile} />
+      <EducationAndExperience init={{ education }} title="Education" />
+      <EducationAndExperience init={{ experience }} title="Experience" />
 
     </div>
   );

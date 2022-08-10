@@ -1,5 +1,4 @@
 import React from "react";
-import { Remarkable } from 'remarkable';
 import ReactMarkdown from 'react-remarkable';
 
 class Field extends React.Component {
@@ -60,7 +59,6 @@ class Field extends React.Component {
                 this.node = node;
               }}
             >
-              {/* <div> */}
               <input
                 ref={(input) => {
                   this.nameInput = input;
@@ -70,7 +68,6 @@ class Field extends React.Component {
                 onChange={this.handleOnChange}
               />
               <button type="submit">Save</button>
-              {/* </div> */}
             </form>
           </div>
         ) : (
