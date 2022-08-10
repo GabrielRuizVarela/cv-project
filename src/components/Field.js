@@ -21,23 +21,39 @@ class Field extends React.Component {
       showEdit: true,
     });
   }
-  
+
   handleOnChange = (event) => {
     this.setState({
       value: event.target.value,
     });
   }
 
+  // if the user click outside the form automatically close it
+  handleClickOutside = (event) => {
+    if (!event.target.contains(this.node)) {
+      return;
+    }
+    this.setState({
+      showEdit: false,
+    });
+  }
+  componentDidMount() {
+    document.addEventListener("mousedown", this.handleClickOutside);
+  }
+  componentWillUnmount() {
+    document.removeEventListener("mousedown", this.handleClickOutside);
+  }
+
   render() {
     return (
       <div className="Field">
         {this.state.showEdit ? (
-          <div>
-            <form onSubmit={this.handleSubmit}>
-              <div>  
-                <input type="text" value={this.state.value} onChange={this.handleOnChange} />
-                <button type="submit">Save</button>
-              </div>
+          <div id="form">
+            <form onSubmit={this.handleSubmit} onClick={this.handleClickOutside} ref={(node) => { this.node = node }} >
+              {/* <div> */}
+              <input ref={(input) => { this.nameInput = input; }} type="text" value={this.state.value} onChange={this.handleOnChange} />
+              <button type="submit">Save</button>
+              {/* </div> */}
             </form>
           </div>
         ) : (
