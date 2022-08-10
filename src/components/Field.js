@@ -1,6 +1,6 @@
 import React from "react";
-import { Remarkable } from 'remarkable';
-import ReactMarkdown from 'react-remarkable';
+import { Remarkable } from "remarkable";
+import ReactMarkdown from "react-remarkable";
 
 class Field extends React.Component {
   constructor(props) {
@@ -78,8 +78,8 @@ class Field extends React.Component {
             <div
               className={this.props.className}
               onMouseDown={this.handleClick}
-              >
-                <ReactMarkdown source={this.state.value} />
+            >
+              <ReactMarkdown source={this.state.value} />
             </div>
           </div>
         )}
