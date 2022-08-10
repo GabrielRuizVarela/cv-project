@@ -14,7 +14,7 @@ class Field extends React.Component {
     this.setState({
       showEdit: false,
     });
-  }
+  };
 
   handleClick = (event) => {
     this.setState({
@@ -26,7 +26,7 @@ class Field extends React.Component {
     this.setState({
       value: event.target.value,
     });
-  }
+  };
 
   // if the user click outside the form automatically close it
   handleClickOutside = (event) => {
@@ -58,7 +58,12 @@ class Field extends React.Component {
           </div>
         ) : (
           <div>
-            <div className={this.props.className} onMouseDown={this.handleClick}>{this.state.value}</div>
+            <div
+              className={this.props.className}
+              onMouseDown={this.handleClick}
+            >
+              {this.state.value}
+            </div>
           </div>
         )}
       </div>
