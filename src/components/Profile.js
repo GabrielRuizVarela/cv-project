@@ -8,10 +8,11 @@ class Profile extends React.Component {
   render() {
     const profile = this.props.init;
     return (
-      Object.keys(profile).map((name) => {
-        return <Field defaultValues={profile[name]} className={name} key={nanoid()} />
-      })
+      <div className={this.props.className}>
+        {Object.keys(profile).map((name) => <Field defaultValues={profile[name]} className={name} key={nanoid()} />)}
+      </div>
     );
   }
 }
+
 export default Profile;

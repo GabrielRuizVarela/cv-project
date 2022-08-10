@@ -7,7 +7,7 @@ class GeneralInformation extends React.Component {
   render() {
     const { generalInformation, skills } = this.props.init;
     return (
-      <div className="GeneralInformation">
+      <div className={ this.props.className }>
         {
           Object.keys(generalInformation).map((name) => {
             return <Field defaultValues={generalInformation[name]} className={name} key={nanoid()} />

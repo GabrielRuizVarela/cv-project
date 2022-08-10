@@ -52,9 +52,12 @@ function App() {
   return (
     <div className="App">
 
-      <GeneralInformation init={{ generalInformation, skills }} />
-      <Profile init={profile} />
-
+      <GeneralInformation className="GeneralInformation" init={{ generalInformation, skills }} />
+      <Profile init={profile} className="Profile" />
+      <div className="EducationAndExperience">
+      <EducationAndExperience init={{ education }} title="Education" className="Education" />
+      <EducationAndExperience init={{ experience }} title="Experience" className="Experience"/>
+      </div>
     </div>
   );
 }
