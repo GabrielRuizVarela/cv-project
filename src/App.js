@@ -1,6 +1,6 @@
-import './style/App.css';
-import React from 'react';
-import { nanoid } from 'nanoid';
+import "./style/App.css";
+import React from "react";
+import { nanoid } from "nanoid";
 
 // Create a new project using npx create-react-app cv-project. If you need a reminder on how it works, check out the previous lessons. Don’t forget to setup a GitHub repository for your project, to push your progress.
 // Remove the boilerplate code created by create-react-app.
@@ -16,9 +16,9 @@ import { nanoid } from 'nanoid';
 
 // import GeneralInformation from './components/GeneralInformation';
 // import Profile from './components/Profile';
-import Field from './components/Field';
-import GeneralInformation from './components/GeneralInformation';
-import Profile from './components/Profile';
+import Field from "./components/Field";
+import GeneralInformation from "./components/GeneralInformation";
+import Profile from "./components/Profile";
 
 function App() {
   const generalInformation = {
@@ -33,8 +33,7 @@ function App() {
     dateFrom: "",
     dateUntil: "",
   };
-  const skills =
-    `- Communication\n 
+  const skills = `- Communication\n 
       - Listening\n 
       - Detail\n
       - Oriented\n
@@ -47,16 +46,27 @@ function App() {
   const profile = {
     name: "Gabriel Ruiz Varela",
     yourTitle: "Fullstack Developer",
-    description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam euismod, nisi eu consectetur consectetur, nisl nisi consectetur nisl, eget consectetur nisl nisi euismod nisl. Nam euismod, nisi eu consectetur consectetur, nisl nisi consectetur nisl, eget consectetur nisl nisi euismod nisl. Nam euismod, nisi eu consectetur consectetur, nisl nisi consectetur nisl, eget consectetur nisl nisi euismod nisl. Nam euismod, nisi eu consectetur consectetur, nisl nisi consectetur nisl, eget consectetur nisl nisi euismod nisl. Nam euismod, nisi eu consectetur consectetur, nisl nisi consectetur nisl, eget consectetur nisl nisi euismod nisl. Nam euismod, nisi eu consectetur consectetur, nisl nisi consectetur nisl, eget consectetur nisl nisi euismod nisl. Nam euismod, nisi eu consectetur consectetur.",
+    description:
+      "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam euismod, nisi eu consectetur consectetur, nisl nisi consectetur nisl, eget consectetur nisl nisi euismod nisl. Nam euismod, nisi eu consectetur consectetur, nisl nisi consectetur nisl, eget consectetur nisl nisi euismod nisl. Nam euismod, nisi eu consectetur consectetur, nisl nisi consectetur nisl, eget consectetur nisl nisi euismod nisl. Nam euismod, nisi eu consectetur consectetur, nisl nisi consectetur nisl, eget consectetur nisl nisi euismod nisl. Nam euismod, nisi eu consectetur consectetur, nisl nisi consectetur nisl, eget consectetur nisl nisi euismod nisl. Nam euismod, nisi eu consectetur consectetur, nisl nisi consectetur nisl, eget consectetur nisl nisi euismod nisl. Nam euismod, nisi eu consectetur consectetur.",
   };
   return (
     <div className="App">
-
-      <GeneralInformation className="GeneralInformation" init={{ generalInformation, skills }} />
+      <GeneralInformation
+        className="GeneralInformation"
+        init={{ generalInformation, skills }}
+      />
       <Profile init={profile} className="Profile" />
       <div className="EducationAndExperience">
-      <EducationAndExperience init={{ education }} title="Education" className="Education" />
-      <EducationAndExperience init={{ experience }} title="Experience" className="Experience"/>
+        <EducationAndExperience
+          init={{ education }}
+          title="Education"
+          className="Education"
+        />
+        <EducationAndExperience
+          init={{ experience }}
+          title="Experience"
+          className="Experience"
+        />
       </div>
     </div>
   );
