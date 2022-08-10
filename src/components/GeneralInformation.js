@@ -5,30 +5,17 @@ import { nanoid } from "nanoid";
 
 class GeneralInformation extends React.Component {
   render() {
-    const defaultValues = {
-      email: "gabrielruizvarela@gmail.com",
-      phoneNumber: "12344445",
-      schoolName: "",
-      titleOfStudy: "",
-      dateOfStudy: "",
-      companyName: "",
-      positionTitle: "",
-      mainTasks: "",
-      dateFrom: "",
-      dateUntil: "",
-    };
+    const { generalInformation, skills } = this.props.init;
     return (
       <div className="GeneralInformation">
-        {Object.keys(defaultValues).map((name) => {
-          return (
-            <Field
-              className={name}
-              name={name}
-              key={nanoid()}
-              defaultValues={defaultValues[name]}
-            />
-          );
-        })}
+        {
+          Object.keys(generalInformation).map((name) => {
+            return <Field defaultValues={generalInformation[name]} className={name} key={nanoid()} />
+          })
+        }
+        {<h1 className="title">Skills</h1>}
+        {<Field defaultValues={skills} className="skills" key={nanoid()} />}
+
       </div>
     );
   }
