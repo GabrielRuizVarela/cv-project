@@ -20,7 +20,7 @@ class Field extends React.Component {
     this.setState({
       showEdit: true,
     });
-  }
+  };
 
   handleOnChange = (event) => {
     this.setState({
@@ -36,10 +36,12 @@ class Field extends React.Component {
     this.setState({
       showEdit: false,
     });
-  }
+  };
+
   componentDidMount() {
     document.addEventListener("mousedown", this.handleClickOutside);
   }
+
   componentWillUnmount() {
     document.removeEventListener("mousedown", this.handleClickOutside);
   }
@@ -49,9 +51,22 @@ class Field extends React.Component {
       <div className="Field">
         {this.state.showEdit ? (
           <div id="form">
-            <form onSubmit={this.handleSubmit} onClick={this.handleClickOutside} ref={(node) => { this.node = node }} >
+            <form
+              onSubmit={this.handleSubmit}
+              onClick={this.handleClickOutside}
+              ref={(node) => {
+                this.node = node;
+              }}
+            >
               {/* <div> */}
-              <input ref={(input) => { this.nameInput = input; }} type="text" value={this.state.value} onChange={this.handleOnChange} />
+              <input
+                ref={(input) => {
+                  this.nameInput = input;
+                }}
+                type="text"
+                value={this.state.value}
+                onChange={this.handleOnChange}
+              />
               <button type="submit">Save</button>
               {/* </div> */}
             </form>

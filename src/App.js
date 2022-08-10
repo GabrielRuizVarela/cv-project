@@ -1,5 +1,5 @@
-import './style/App.css';
-import React from 'react';
+import "./style/App.css";
+import React from "react";
 
 // Create a new project using npx create-react-app cv-project. If you need a reminder on how it works, check out the previous lessons. Don’t forget to setup a GitHub repository for your project, to push your progress.
 // Remove the boilerplate code created by create-react-app.
@@ -13,7 +13,7 @@ import React from 'react';
 // Include a styles folder in your src directory for your CSS files. You’ll need to import these in the component files to use them.
 // Don’t forget to push your solution to GitHub. You should be proud of your work and show it off to the world!
 
-import GeneralInformation from './components/GeneralInformation';
+import GeneralInformation from "./components/GeneralInformation";
 // import Profile from './components/Profile';
 
 function App() {
