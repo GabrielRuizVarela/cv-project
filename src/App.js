@@ -1,6 +1,6 @@
-import "./style/App.css";
-import React from "react";
-import { nanoid } from "nanoid";
+import './style/App.css';
+import React from 'react';
+import { nanoid } from 'nanoid';
 
 // Create a new project using npx create-react-app cv-project. If you need a reminder on how it works, check out the previous lessons. Don’t forget to setup a GitHub repository for your project, to push your progress.
 // Remove the boilerplate code created by create-react-app.
@@ -14,11 +14,9 @@ import { nanoid } from "nanoid";
 // Include a styles folder in your src directory for your CSS files. You’ll need to import these in the component files to use them.
 // Don’t forget to push your solution to GitHub. You should be proud of your work and show it off to the world!
 
-// import GeneralInformation from './components/GeneralInformation';
-// import Profile from './components/Profile';
-import Field from "./components/Field";
-import GeneralInformation from "./components/GeneralInformation";
-import Profile from "./components/Profile";
+import GeneralInformation from './components/GeneralInformation';
+import Profile from './components/Profile';
+import EducationAndExperience from './components/EducationAndExperience';
 
 function App() {
   const generalInformation = {
@@ -33,7 +31,8 @@ function App() {
     dateFrom: "",
     dateUntil: "",
   };
-  const skills = `- Communication\n 
+  const skills =
+    `- Communication\n 
       - Listening\n 
       - Detail\n
       - Oriented\n
@@ -43,31 +42,57 @@ function App() {
       - Adaptability\n
       - Teamwork`;
 
+  const education = [
+    {
+      place: "UNT",
+      from: "2009",
+      to: "20013",
+      title: "Ingeniero de Sistemas",
+      description: " Lorem short asdfasafsdf ",
+      id: nanoid(),
+    },
+    {
+      place: "TOP",
+      from: "2021",
+      to: "2022",
+      title: "Fullstack Developer",
+      description: " Lorem short asdfasafsdf ",
+      id: nanoid(),
+    }
+  ];
+
+  const experience = [
+    {
+      place: "Google",
+      from: "2019",
+      to: "2021",
+      title: "Fullstack Developer",
+      description: " Lorem short asdfasafsdf ",
+      id: nanoid(),
+    },
+    {
+      place: "Facebook",
+      from: "2018",
+      to: "2019",
+      title: "Fullstack Developer",
+      description: " Lorem short asdfasafsdf ",
+      id: nanoid(),
+    }
+  ];
+
   const profile = {
     name: "Gabriel Ruiz Varela",
     yourTitle: "Fullstack Developer",
-    description:
-      "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam euismod, nisi eu consectetur consectetur, nisl nisi consectetur nisl, eget consectetur nisl nisi euismod nisl. Nam euismod, nisi eu consectetur consectetur, nisl nisi consectetur nisl, eget consectetur nisl nisi euismod nisl. Nam euismod, nisi eu consectetur consectetur, nisl nisi consectetur nisl, eget consectetur nisl nisi euismod nisl. Nam euismod, nisi eu consectetur consectetur, nisl nisi consectetur nisl, eget consectetur nisl nisi euismod nisl. Nam euismod, nisi eu consectetur consectetur, nisl nisi consectetur nisl, eget consectetur nisl nisi euismod nisl. Nam euismod, nisi eu consectetur consectetur, nisl nisi consectetur nisl, eget consectetur nisl nisi euismod nisl. Nam euismod, nisi eu consectetur consectetur.",
+    description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam euismod, nisi eu consectetur consectetur, nisl nisi consectetur nisl, eget consectetur nisl nisi euismod nisl. Nam euismod, nisi eu consectetur consectetur, nisl nisi consectetur nisl, eget consectetur nisl nisi euismod nisl. Nam euismod, nisi eu consectetur consectetur, nisl nisi consectetur nisl, eget consectetur nisl nisi euismod nisl. Nam euismod, nisi eu consectetur consectetur, nisl nisi consectetur nisl, eget consectetur nisl nisi euismod nisl. Nam euismod, nisi eu consectetur consectetur, nisl nisi consectetur nisl, eget consectetur nisl nisi euismod nisl. Nam euismod, nisi eu consectetur consectetur, nisl nisi consectetur nisl, eget consectetur nisl nisi euismod nisl. Nam euismod, nisi eu consectetur consectetur.",
   };
   return (
     <div className="App">
-      <GeneralInformation
-        className="GeneralInformation"
-        init={{ generalInformation, skills }}
-      />
-      <Profile init={profile} className="Profile" />
-      <div className="EducationAndExperience">
-        <EducationAndExperience
-          init={{ education }}
-          title="Education"
-          className="Education"
-        />
-        <EducationAndExperience
-          init={{ experience }}
-          title="Experience"
-          className="Experience"
-        />
-      </div>
+
+      <GeneralInformation init={{ generalInformation, skills }} />
+      <Profile init={profile} />
+      <EducationAndExperience init={{ education }} title="Education" />
+      <EducationAndExperience init={{ experience }} title="Experience" />
+
     </div>
   );
 }
