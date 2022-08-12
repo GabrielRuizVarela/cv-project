@@ -1,7 +1,8 @@
-import './style/App.css';
+import './style/App.scss';
 import React from 'react';
 import { nanoid } from 'nanoid';
-
+// import ProfileImage from './69A698DB-B5FC-4058-946D-A61F7EF48806.JPEG';
+// import HeaderImage from './header-img.svg';
 // Create a new project using npx create-react-app cv-project. If you need a reminder on how it works, check out the previous lessons. Don’t forget to setup a GitHub repository for your project, to push your progress.
 // Remove the boilerplate code created by create-react-app.
 // You should use class components for this project. You’re going to find a lot of code written using class components and this practical experience will help you understand it when encountered. You’ll also revisit this project in a later lesson to replace the class components with functional ones.
@@ -20,35 +21,40 @@ import EducationAndExperience from './components/EducationAndExperience';
 
 function App() {
   const generalInformation = {
-    email: "gabrielruizvarela@gmail.com",
-    phoneNumber: "12344445",
-    schoolName: "",
-    titleOfStudy: "",
-    dateOfStudy: "",
-    companyName: "",
-    positionTitle: "",
-    mainTasks: "",
-    dateFrom: "",
-    dateUntil: "",
+    email: "Email: gabrielruizvarela@gmail.com",
+    phoneNumber: "Phone: +12344445",
+    Links: `[Github](https:/github.com/GabrielRuizVarela) [LinkedIn](https:/linkedin.com/in/gabriel-ruiz-varela) [Twitter](https:/twitter.com/gabrielruizvarela)`,
+    // [LinkedIn](https://www.linkedin.com/in/gabriel-ruiz-varela-28044153/)`// Links in markdown list format
+    // schoolName: "",
+    // titleOfStudy: "",
+    // dateOfStudy: "",
+    // companyName: "",
+    // positionTitle: "",
+    // mainTasks: "",
+    // dateFrom: "",
+    // dateUntil: "",
   };
-  const skills =
-    `- Communication\n 
-      - Listening\n 
-      - Detail\n
-      - Oriented\n
-      - Time Management\n
-      - Problem Solving\n
-      - Artistic Eye\n
-      - Adaptability\n
-      - Teamwork`;
+  const skills = `
+  - **Language**:  
+    - English
+    - Spanish
+    - Portuguese   
+  - **Problem solving:**
+    - Detail oriented
+    - Strong analytical thinking
+    - Strong communication
+    - Good Time Management
+    - Artistic Eye
+    - Adaptability
+    - Teamwork`;
 
   const education = [
     {
       place: "UNT",
       from: "2009",
-      to: "20013",
+      to: "2013",
       title: "Ingeniero de Sistemas",
-      description: " Lorem short asdfasafsdf ",
+      description: " Lorem short asdfasafsdf asdfasafsdfasdfasafsdfasdfasafsdf",
       id: nanoid(),
     },
     {
@@ -56,7 +62,7 @@ function App() {
       from: "2021",
       to: "2022",
       title: "Fullstack Developer",
-      description: " Lorem short asdfasafsdf ",
+      description: " Lorem short asdfasafsdf lhapyfb kafdkblkj afjniolmlaeriuasdfasafsdf asdfasafsdfasdfasafsdf",
       id: nanoid(),
     }
   ];
@@ -67,7 +73,7 @@ function App() {
       from: "2019",
       to: "2021",
       title: "Fullstack Developer",
-      description: " Lorem short asdfasafsdf ",
+      description: " Lorem short asdfasafsdfsdfasafsdf lhapyfb kafdkblkj afjniolmlaeriu ",
       id: nanoid(),
     },
     {
@@ -83,16 +89,19 @@ function App() {
   const profile = {
     name: "Gabriel Ruiz Varela",
     yourTitle: "Fullstack Developer",
-    description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam euismod, nisi eu consectetur consectetur, nisl nisi consectetur nisl, eget consectetur nisl nisi euismod nisl. Nam euismod, nisi eu consectetur consectetur, nisl nisi consectetur nisl, eget consectetur nisl nisi euismod nisl. Nam euismod, nisi eu consectetur consectetur, nisl nisi consectetur nisl, eget consectetur nisl nisi euismod nisl. Nam euismod, nisi eu consectetur consectetur, nisl nisi consectetur nisl, eget consectetur nisl nisi euismod nisl. Nam euismod, nisi eu consectetur consectetur, nisl nisi consectetur nisl, eget consectetur nisl nisi euismod nisl. Nam euismod, nisi eu consectetur consectetur, nisl nisi consectetur nisl, eget consectetur nisl nisi euismod nisl. Nam euismod, nisi eu consectetur consectetur.",
+    description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam euismod, nisi eu consectetur consectetur, nisl nisi consectetur nisl, eget consectetur nisl nisi euismod nisl. Nam euismod, nisi eu consectetur consectetur, nisl nisi consectetur nisl, eget consectetur nisl nisi euismod nisl. Nam euismod, nisi eu consectetur consectetur, nisl nisi consectetur nisl, eget consectetur nisl nisi euismod nisl. Nam euismod, nisi eu consectetur consectetur, nisl nisi consectetur nisl, eget consectetur nisl nisi euismod nisl. Nam euismod, nisi eu consectetur consectetur, nisl nisi consectetur nisl, eget consectetur nisl nisi euismod nisl. Nam euismod, nisi eu consectetur consectetur, nisl nisi consectetur nisl, eget consectetur nisl nisi euismod nisl.",
   };
+
   return (
-    <div className="App">
-
-      <GeneralInformation init={{ generalInformation, skills }} />
-      <Profile init={profile} />
-      <EducationAndExperience init={{ education }} title="Education" />
-      <EducationAndExperience init={{ experience }} title="Experience" />
-
+    <div className="Main">
+      <div id="header-img" alt="Background" />
+      <div className="App">
+        <div id='Profile-img' alt="Profile Image" />
+        <GeneralInformation className="GeneralIndormation" init={{ generalInformation, skills }} />
+        <Profile className="Profile" init={profile} />
+        <EducationAndExperience className="EducationAndExperience" init={{ education }} title="Education" />
+        <EducationAndExperience className="EducationAndExperience" init={{ experience }} title="Experience" />
+      </div>
     </div>
   );
 }

@@ -11,14 +11,17 @@ class GeneralInformation extends React.Component {
         {Object.keys(generalInformation).map((name) => {
           return (
             <Field
+              placeholder={this.props.placeholder}
               defaultValues={generalInformation[name]}
               className={name}
               key={nanoid()}
             />
           );
         })}
-        <h1 className="title">Skills</h1>
-        <Field defaultValues={skills} className="skills" key={nanoid()} />
+        <div className="Skill-list">
+          <h1 className="title">Skills</h1>
+          <Field placeholder={this.props.placeholder} defaultValues={skills} className="skills" key={nanoid()} />
+        </div>
       </div>
     );
   }
