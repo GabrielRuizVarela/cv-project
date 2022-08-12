@@ -11,6 +11,7 @@ class Profile extends React.Component {
       <div className={this.props.className}>
         {Object.keys(profile).map((name) => (
           <Field
+            placeholder={profile[name]}
             defaultValues={profile[name]}
             className={name}
             key={nanoid()}

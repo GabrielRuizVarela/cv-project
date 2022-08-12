@@ -1,7 +1,7 @@
 import React from "react";
 import { nanoid } from "nanoid";
 import Field from "./Field";
-
+import "../style/EducationAndExperience.scss";
 class EducationAndExperience extends React.Component {
   constructor(props) {
     super(props);
@@ -20,61 +20,72 @@ class EducationAndExperience extends React.Component {
   render() {
     return (
       <div className={this.props.className}>
-        <h1 className="title">{this.props.title}</h1>
-        <button
-          className="add"
-          onClick={() => {
-            this.setState({
-              education: [
-                ...this.state.education,
-                {
-                  place: "",
-                  title: "",
-                  from: "",
-                  to: "",
-                  description: "",
-                  id: nanoid(),
-                },
-              ],
-            });
-          }}
-        >
-          +
-        </button>
+        <h1 className="title">{this.props.title}
+          <button
+            className="add"
+            onClick={() => {
+              this.setState({
+                education: [
+                  ...this.state.education,
+                  {
+                    place: "Google",
+                    title: "Senior Software Engineer",
+                    from: " 2009",
+                    to: "2017",
+                    description: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam, quidem.",
+                    id: nanoid(),
+                  },
+                ],
+              });
+            }}
+          >
+            Add
+          </button>
+        </h1>
         {this.state.education.map((education) => {
           return (
             <div className="education" key={nanoid()}>
-              <Field
-                defaultValues={education.startDate}
-                className="from"
-                key={nanoid()}
-              />
-              <Field
-                defaultValues={education.endDate}
-                className="to"
-                key={nanoid()}
-              />
-              <Field
-                defaultValues={education.title}
-                className="title"
-                key={nanoid()}
-              />
-              <Field
-                defaultValues={education.place}
-                className="place"
-                key={nanoid()}
-              />
-              <Field
-                defaultValues={education.description}
-                className="description"
-                key={nanoid()}
-              />
+              <div className="degree">
+                <Field
+                  placeholder={education.title}
+                  defaultValues={education.title}
+                  key={nanoid()}
+                />
+              </div>
               <button
                 className="delete"
                 onClick={() => this.deleteEducation(this, education.id)}
               >
                 Delete
               </button>
+              <div className="from">
+                <Field
+                  placeholder={education.from}
+                  defaultValues={education.from}
+                  key={nanoid()}
+                />
+              </div>
+              <div className="to">
+                <Field
+                  placeholder={education.to}
+                  defaultValues={education.to}
+                  key={nanoid()}
+                />
+              </div>
+              <div className="place">
+                <Field
+                  placeholder={education.place}
+                  defaultValues={education.place}
+                  key={nanoid()}
+                />
+              </div>
+              <div className="description">
+                <Field
+                  placeholder={education.description}
+                  defaultValues={education.description}
+                  key={nanoid()}
+                />
+              </div>
             </div>
           );
         })}

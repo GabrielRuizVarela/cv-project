@@ -69,7 +69,7 @@ class Field extends React.Component {
                 this.node = node;
               }}
             >
-            <textarea onChange={this.handleOnChange} value={this.state.value} ref={this.textInput} />
+            <textarea placeholder={this.props.placeholder} onChange={this.handleOnChange} value={this.state.value} ref={this.textInput} />
             <button type="submit">Save</button>
           </form>
           </div>

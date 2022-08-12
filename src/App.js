@@ -21,9 +21,10 @@ import EducationAndExperience from './components/EducationAndExperience';
 
 function App() {
   const generalInformation = {
-    email: "gabrielruizvarela@gmail.com",
-    phoneNumber: "12344445",
-    Links: " [Github](https:/github.com/GabrielRuizVarela) ",// Links in markdown list format
+    email: "Email: gabrielruizvarela@gmail.com",
+    phoneNumber: "Phone: +12344445",
+    Links: `[Github](https:/github.com/GabrielRuizVarela) [LinkedIn](https:/linkedin.com/in/gabriel-ruiz-varela) [Twitter](https:/twitter.com/gabrielruizvarela)`,
+    // [LinkedIn](https://www.linkedin.com/in/gabriel-ruiz-varela-28044153/)`// Links in markdown list format
     // schoolName: "",
     // titleOfStudy: "",
     // dateOfStudy: "",
@@ -33,24 +34,27 @@ function App() {
     // dateFrom: "",
     // dateUntil: "",
   };
-  const skills =
-    `- Communication\n 
-      - Listening\n 
-      - Detail\n
-      - Oriented\n
-      - Time Management\n
-      - Problem Solving\n
-      - Artistic Eye\n
-      - Adaptability\n
-      - Teamwork`;
+  const skills = `
+  - **Language**:  
+    - English
+    - Spanish
+    - Portuguese   
+  - **Problem solving:**
+    - Detail oriented
+    - Strong analytical thinking
+    - Strong communication
+    - Good Time Management
+    - Artistic Eye
+    - Adaptability
+    - Teamwork`;
 
   const education = [
     {
       place: "UNT",
       from: "2009",
-      to: "20013",
+      to: "2013",
       title: "Ingeniero de Sistemas",
-      description: " Lorem short asdfasafsdf ",
+      description: " Lorem short asdfasafsdf asdfasafsdfasdfasafsdfasdfasafsdf",
       id: nanoid(),
     },
     {
@@ -58,7 +62,7 @@ function App() {
       from: "2021",
       to: "2022",
       title: "Fullstack Developer",
-      description: " Lorem short asdfasafsdf ",
+      description: " Lorem short asdfasafsdf lhapyfb kafdkblkj afjniolmlaeriuasdfasafsdf asdfasafsdfasdfasafsdf",
       id: nanoid(),
     }
   ];
@@ -69,7 +73,7 @@ function App() {
       from: "2019",
       to: "2021",
       title: "Fullstack Developer",
-      description: " Lorem short asdfasafsdf ",
+      description: " Lorem short asdfasafsdfsdfasafsdf lhapyfb kafdkblkj afjniolmlaeriu ",
       id: nanoid(),
     },
     {
@@ -87,6 +91,7 @@ function App() {
     yourTitle: "Fullstack Developer",
     description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam euismod, nisi eu consectetur consectetur, nisl nisi consectetur nisl, eget consectetur nisl nisi euismod nisl. Nam euismod, nisi eu consectetur consectetur, nisl nisi consectetur nisl, eget consectetur nisl nisi euismod nisl. Nam euismod, nisi eu consectetur consectetur, nisl nisi consectetur nisl, eget consectetur nisl nisi euismod nisl. Nam euismod, nisi eu consectetur consectetur, nisl nisi consectetur nisl, eget consectetur nisl nisi euismod nisl. Nam euismod, nisi eu consectetur consectetur, nisl nisi consectetur nisl, eget consectetur nisl nisi euismod nisl. Nam euismod, nisi eu consectetur consectetur, nisl nisi consectetur nisl, eget consectetur nisl nisi euismod nisl.",
   };
+
   return (
     <div className="Main">
       <div id="header-img" alt="Background" />
