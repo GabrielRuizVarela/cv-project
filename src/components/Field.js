@@ -1,10 +1,10 @@
 import React from "react";
-import { Remarkable } from 'remarkable';
 import ReactMarkdown from 'react-remarkable';
 
 class Field extends React.Component {
   constructor(props) {
     super(props);
+    this.textInput = React.createRef();
     this.state = {
       value: this.props.defaultValues,
       showEdit: false,
@@ -48,6 +48,15 @@ class Field extends React.Component {
     document.removeEventListener("mousedown", this.handleClickOutside);
   }
 
+  focus() {
+    this.textInput.current.focus();
+  }
+  componentDidUpdate() {
+    if (this.state.showEdit) {
+      this.textInput.current.focus();
+    }
+  }
+
   render() {
     return (
       <div className="Field">
@@ -60,29 +69,21 @@ class Field extends React.Component {
                 this.node = node;
               }}
             >
-              {/* <div> */}
-              <input
-                ref={(input) => {
-                  this.nameInput = input;
-                }}
-                type="text"
-                value={this.state.value}
-                onChange={this.handleOnChange}
-              />
-              <button type="submit">Save</button>
-              {/* </div> */}
-            </form>
+            <textarea onChange={this.handleOnChange} value={this.state.value} ref={this.textInput} />
+            <button type="submit">Save</button>
+          </form>
           </div>
-        ) : (
-          <div>
-            <div
-              className={this.props.className}
-              onMouseDown={this.handleClick}
-              >
-                <ReactMarkdown source={this.state.value} />
-            </div>
-          </div>
-        )}
+    ) : (
+      <div>
+        <div
+          className={this.props.className}
+          onMouseDown={this.handleClick}
+        >
+          <ReactMarkdown source={this.state.value} />
+        </div>
+      </div>
+    )
+  }
       </div>
     );
   }
