@@ -23,11 +23,11 @@ window.onload = () => {
       <h2>Instructions</h2>
     </div>
     <div class="modal-body">
-      <p>Click any text to edit, or hover the titles to add fields.\n
-        The fieds accept markdown syntax, and can be used to add links, images, and more.\n
-        Click the "Save" button to save your changes.\n
-        Press CTRL + P, or CMD + P on macOS, to preview your resume.\n
-        .\n
+      <p>Click any text to edit, or hover the titles to add fields.<br>
+        The fieds accept markdown syntax, and can be used to add links, images, and more.<br>
+        Click the "Save" button to save your changes.<br>
+        Press CTRL + P, or CMD + P on macOS, to preview your resume.<br>
+        <br>
       </p>
     </div>
       <button class="modal-button" id="modal-button-close">Close</button>
