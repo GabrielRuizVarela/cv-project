@@ -1,0 +1,16 @@
+#Profile-img {
+	// background-image: url("../69A698DB-B5FC-4058-946D-A61F7EF48806.JPEG");
+	height: 250px;
+	width: 250px;
+	border-radius: 50%;
+	background-size: 300px;
+	background-repeat: no-repeat;
+	background-position-x: center;
+	background-position-y: center;
+	object-fit: contain;
+}
+
+#Profile-img:hover {
+  cursor: pointer;
+  filter: grayscale(0.5);
+}

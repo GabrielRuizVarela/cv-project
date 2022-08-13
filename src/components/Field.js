@@ -1,5 +1,6 @@
 import React from "react";
 import ReactMarkdown from 'react-remarkable';
+import "../style/Field.scss";
 
 class Field extends React.Component {
   constructor(props) {
@@ -42,18 +43,36 @@ class Field extends React.Component {
 
   componentDidMount() {
     document.addEventListener("mousedown", this.handleClickOutside);
-  }
+    // when you hover over a div set the opacity of button to 1, but only for the corresponding div
+    const textarea = this.textInput.current;
+    if (textarea) {
+      const button = textarea.querySelector('button');
+      textarea.addEventListener("mouseover", () => {
+        button.style.opacity = 1;
+      }
+      );
+      textarea.addEventListener("mouseout", () => {
+        button.style.opacity = 0;
+      }
+      );
+    }
 
+  }
+  
   componentWillUnmount() {
     document.removeEventListener("mousedown", this.handleClickOutside);
   }
-
+  
   focus() {
     this.textInput.current.focus();
   }
   componentDidUpdate() {
     if (this.state.showEdit) {
       this.textInput.current.focus();
+    }
+    const textarea = this.textInput.current;
+    if (textarea) {
+      textarea.style.height = textarea.scrollHeight/2 + "px";
     }
   }
 
@@ -69,21 +88,19 @@ class Field extends React.Component {
                 this.node = node;
               }}
             >
-            <textarea placeholder={this.props.placeholder} onChange={this.handleOnChange} value={this.state.value} ref={this.textInput} />
-            <button type="submit">Save</button>
-          </form>
+              <textarea placeholder={this.props.placeholder} onChange={this.handleOnChange} value={this.state.value} ref={this.textInput} />
+              <button id={this.props.className} type="submit">Save</button>
+            </form>
           </div>
-    ) : (
-      <div>
-        <div
-          className={this.props.className}
-          onMouseDown={this.handleClick}
-        >
-          <ReactMarkdown source={this.state.value} />
-        </div>
-      </div>
-    )
-  }
+        ) : (
+          <div
+            className={this.props.className}
+              onMouseDown={this.handleClick}
+          >
+            <ReactMarkdown source={this.state.value} />
+          </div>
+        )
+        }
       </div>
     );
   }

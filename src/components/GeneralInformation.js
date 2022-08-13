@@ -1,5 +1,5 @@
 import React from "react";
-// import "./style/GeneralInformation.css";
+import "../style/GeneralInformation.scss";
 import Field from "./Field";
 import { nanoid } from "nanoid";
 
@@ -20,7 +20,7 @@ class GeneralInformation extends React.Component {
         })}
         <div className="Skill-list">
           <h1 className="title">Skills</h1>
-          <Field placeholder={this.props.placeholder} defaultValues={skills} className="skills" key={nanoid()} />
+          <Field defaultValues={skills} className="skills" key={nanoid()} />
         </div>
       </div>
     );
