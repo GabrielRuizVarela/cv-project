@@ -2,6 +2,9 @@
 :root {
 	--color-main: rgb(244, 180, 183);
 	--color-sec: rgb(250, 217, 155);
+	@media (max-width: 768px) {
+		font-size: 0.8rem;
+	}
 }
 .Main {
 	display: grid;
@@ -29,15 +32,26 @@
 	display: grid;
 	grid-template-columns: 1fr 3fr;
 	grid-template-rows: auto auto 1fr;
-	// align-content: end;
 	grid-gap: 2rem;
 	/* size A4 */
 	width: 21cm;
 	min-height: 29.7cm;
+	@media (max-width: 768px) {
+		width: 90vw;
+		grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+		padding: 0.8rem;
+		padding-bottom: 4rem;
+		justify-items: center;
+	}
 }
 .Profile-img {
 	grid-column: 1/2;
 	grid-row: 1/2;
+	@media (max-width: 768px) {
+		grid-column: 1/2;
+		grid-row: 1/2;
+	}
+
 	// background-image: url("../69A698DB-B5FC-4058-946D-A61F7EF48806.JPEG");
 	height: 250px;
 	width: 250px;
@@ -49,12 +63,19 @@
 	object-fit: contain;
 }
 .Profile {
-	textarea {
-		height: 100%;
-		width: 100%;
-		border: none;
-		overflow: auto;
+	@media (max-width: 768px) {
+		grid-column: 1/2;
+		grid-row: 2/3;
+		.name {
+			padding-left: 2rem;
+		}
 	}
+	// textarea {
+	// 	height: 100%;
+	// 	width: 100%;
+	// 	border: none;
+	// 	overflow: auto;
+	// }
 	// border-image: 10px solid linear-gradient(90deg, rgba(2,0,36,1) 0%, rgba(0,212,255,1) 100%);;
 	grid-column: 2/3;
 	grid-row: 1/2;
@@ -89,6 +110,10 @@
 	}
 }
 .GeneralIndormation {
+	@media (max-width: 768px) {
+		grid-column: 1/2;
+		grid-row: 3/4;
+	}
 	grid-column: 1 / 2;
 	grid-row: 2 / 4;
 	height: fit-content;
@@ -111,11 +136,11 @@
 		);
 	}
 	// > .Field {
-  //   // font-weight: 700;
-		* {
-      font-size: 1.1rem;
-			// text-align: center;
-		}
+	//   // font-weight: 700;
+	* {
+		font-size: 1.1rem;
+		// text-align: center;
+	}
 	// }
 }
 a {
@@ -128,10 +153,10 @@ a {
 	-webkit-background-clip: text;
 	background-clip: text;
 	-webkit-text-fill-color: transparent;
-  &:hover{
-    transform: filters(hue-rotate(360deg));
-    transition: filters 0.3s ease-in-out;
-  }
+	&:hover {
+		transform: filters(hue-rotate(360deg));
+		transition: filters 0.3s ease-in-out;
+	}
 }
 
 .EducationAndExperience {
@@ -155,7 +180,7 @@ a {
 		justify-items: center;
 		align-items: center;
 		padding-left: 1.1rem;
-    margin-top: 2rem;
+		margin-top: 2rem;
 		&:hover button {
 			transition: opacity 0.2s ease-in-out;
 			opacity: 1;
@@ -183,8 +208,8 @@ button {
 	-webkit-background-clip: text;
 	background-clip: text;
 	-webkit-text-fill-color: transparent;
-  border: none;
-  border-bottom: 2px solid var(--color-main);
+	border: none;
+	border-bottom: 2px solid var(--color-main);
 }
 
 .Skill-list {
@@ -197,32 +222,32 @@ button {
 	}
 }
 
-dialog{
-  display: grid;
-  gap: 1rem;
-  width: 50ch;
-  background: linear-gradient(
-    45deg,
-    var(--color-sec) 0%,
-    var(--color-main) 100%
-  );
-  padding: 2rem;
-  padding-bottom: 1rem;
-  // center
-  position: fixed;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  #modal-button-close{
-    background: rgba(255, 255, 255, 0.504);
-    color: black;
-    border-radius: 3px;
-    -webkit-text-fill-color: black;
-    padding: 0.5em 1em;
-    // center
-    justify-self: center;
-  }
-  &::backdrop{
-    background: rgb(0, 0, 0, 0.5);
-  }
+dialog {
+	display: grid;
+	gap: 1rem;
+	width: 50ch;
+	background: linear-gradient(
+		45deg,
+		var(--color-sec) 0%,
+		var(--color-main) 100%
+	);
+	padding: 2rem;
+	padding-bottom: 1rem;
+	// center
+	position: fixed;
+	top: 50%;
+	left: 50%;
+	transform: translate(-50%, -50%);
+	#modal-button-close {
+		background: rgba(255, 255, 255, 0.504);
+		color: black;
+		border-radius: 3px;
+		-webkit-text-fill-color: black;
+		padding: 0.5em 1em;
+		// center
+		justify-self: center;
+	}
+	&::backdrop {
+		background: rgb(0, 0, 0, 0.5);
+	}
 }

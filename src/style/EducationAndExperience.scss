@@ -8,12 +8,14 @@
 	margin-top: 1rem;
 	border-left: 4px solid var(--color-main);
 	border-radius: 5px;
+  padding-bottom: 2rem;
 
 	.degree {
 		grid-row: 1/2;
 		grid-column: 2/4;
 		font-size: 1rem;
 		font-weight: 500;
+    border-bottom: 2px solid var(--color-sec);
 		* {
 			text-align: center;
 		}
