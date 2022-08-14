@@ -1,52 +1,52 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import ReactMarkdown from 'react-remarkable';
 import "../style/Field.scss";
 
-class Field extends React.Component {
-  constructor(props) {
-    super(props);
-    this.textInput = React.createRef();
-    this.state = {
-      value: this.props.defaultValues,
-      showEdit: false,
+const Field = (props) => {
+  const [value, setValue] = useState(props.defaultValues);
+  const [showEdit, setShowEdit] = useState(false);
+  const textInput = React.createRef();
+  const node = React.createRef();
+
+
+  const handleSubmit = (event) => {
+    event.preventDefault();
+    setShowEdit(false);
+  };
+
+  const handleClick = (event) => {
+      setShowEdit(true);
     };
+    
+    const handleOnChange = (event) => {
+      setValue(event.target.value);
+    };
+    
+    // if the user click outside the form automatically close it
+    const handleClickOutside = (event) => {
+      if (textInput.current && !event.target.contains(textInput.current)) {
+        return
+      }
+      setShowEdit(false);
   }
 
-  handleSubmit = (event) => {
-    event.preventDefault();
-    this.setState({
-      showEdit: false,
-    });
-  };
 
-  handleClick = (event) => {
-    this.setState({
-      showEdit: true,
-    });
-  };
-
-  handleOnChange = (event) => {
-    this.setState({
-      value: event.target.value,
-    });
-  };
-
-  // if the user click outside the form automatically close it
-  handleClickOutside = (event) => {
-    if (!event.target.contains(this.node)) {
-      return;
+  useEffect(() => {
+    if (showEdit) {
+      textInput.current.focus();
+      const textarea = textInput.current;
+      if (textarea) {
+        textarea.style.height = textarea.scrollHeight / 2 + "px";
+      }
     }
-    this.setState({
-      showEdit: false,
-    });
-  };
+  }, [showEdit, textInput]);
 
-  componentDidMount() {
-    document.addEventListener("mousedown", this.handleClickOutside);
-    // when you hover over a div set the opacity of button to 1, but only for the corresponding div
-    const textarea = this.textInput.current;
+
+  useEffect(() => {
+    document.addEventListener("mousedown", handleClickOutside, false);
+    const textarea = textInput.current;
     if (textarea) {
-      const button = textarea.querySelector('button');
+      const button = document.querySelector('button');
       textarea.addEventListener("mouseover", () => {
         button.style.opacity = 1;
       }
@@ -56,54 +56,36 @@ class Field extends React.Component {
       }
       );
     }
-
-  }
-  
-  componentWillUnmount() {
-    document.removeEventListener("mousedown", this.handleClickOutside);
-  }
-  
-  focus() {
-    this.textInput.current.focus();
-  }
-  componentDidUpdate() {
-    if (this.state.showEdit) {
-      this.textInput.current.focus();
+    return () => {
+      document.removeEventListener("mousedown", handleClickOutside, false);
     }
-    const textarea = this.textInput.current;
-    if (textarea) {
-      textarea.style.height = textarea.scrollHeight/2 + "px";
-    }
-  }
+  });
 
-  render() {
-    return (
-      <div className="Field">
-        {this.state.showEdit ? (
-          <div id="form">
-            <form
-              onSubmit={this.handleSubmit}
-              onClick={this.handleClickOutside}
-              ref={(node) => {
-                this.node = node;
-              }}
-            >
-              <textarea placeholder={this.props.placeholder} onChange={this.handleOnChange} value={this.state.value} ref={this.textInput} />
-              <button id={this.props.className} type="submit">Save</button>
-            </form>
-          </div>
-        ) : (
-          <div
-            className={this.props.className}
-              onMouseDown={this.handleClick}
+  return (
+    <div className="Field" onMouseDown={handleClick}>
+      {showEdit ? (
+        <div id="form">
+          <form
+            onSubmit={handleSubmit}
+            ref={node}
           >
-            <ReactMarkdown source={this.state.value} />
-          </div>
-        )
-        }
-      </div>
-    );
-  }
+            <textarea placeholder={props.placeholder} onChange={handleOnChange} value={value} ref={textInput} />
+            <button id={props.className} type="submit">Save</button>
+          </form>
+        </div>
+      ) : (
+        <div
+          className={props.className}
+
+        >
+          <ReactMarkdown source={value} />
+        </div>
+      )
+      }
+    </div>
+  );
 }
 
-export default Field;
+
+
+export default Field

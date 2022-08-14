@@ -1,14 +1,9 @@
-import React from "react";
+import React,{useState} from "react";
 import "../style/Image.scss";
-class Image extends React.Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      image: props.image,
-    };
-  }
 
-  uploadImage = () => {
+const Image = (props) => {
+  const [image, setImage] = useState(props.image);
+  const uploadImage = () => {
     const input = document.createElement("input");
     input.setAttribute("type", "file");
     input.setAttribute("accept", "image/*");
@@ -17,21 +12,17 @@ class Image extends React.Component {
       const file = input.files[0];
       const reader = new FileReader();
       reader.onload = (e) => {
-        this.setState({
-          image: e.target.result,
-        });
+        setImage(e.target.result);
       };
       reader.readAsDataURL(file);
     };
   }
 
-  render() {
-    return (
-      <div className={this.props.className}>
-        <div onClick={ this.uploadImage } id={this.props.id} alt={this.props.alt} style={{backgroundImage: `url(${this.state.image})`}} />
-      </div>
-    );
-  }
+  return (
+    <div className={props.className}>
+      <div onClick={uploadImage} id={props.id} alt={props.alt} style={{ backgroundImage: `url(${image})` }} />
+    </div>
+  );
 }
 
 export default Image;
